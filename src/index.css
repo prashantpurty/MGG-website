@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveStars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.coming-soon-text {
+  color: rgba(255, 255, 255, 0.1);
+  filter: blur(4px);
+  opacity: 0.7;
+  transition: all 0.5s ease;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0);
+  transform: scale(0.98);
+}
+
+.coming-soon-text:hover {
+  color: rgba(255, 255, 255, 1);
+  filter: blur(0);
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
+  letter-spacing: 2px;
+  transform: scale(1);
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+/* Touch device support for hover effect */
+@media (hover: none) {
+  .coming-soon-text:active {
+    color: rgba(255, 255, 255, 1);
+    filter: blur(0);
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .coming-soon-text {
+    filter: blur(3px);
+  }
+
+  .coming-soon-text:hover,
+  .coming-soon-text:active {
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .coming-soon-text {
+    filter: blur(2px);
+  }
+}
+
+/* Ensure the page takes up full height on mobile */
+html,
+body,
+#root {
+  height: 100%;
+  overflow-x: hidden;
+}
